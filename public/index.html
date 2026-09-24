@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#0f2a42" />
+  <title>Mysterious Woods</title>
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" width="640" height="360" aria-label="Mysterious Woods game canvas"></canvas>
+
+    <section id="menu" class="panel show">
+      <div class="logo">MYSTERIOUS<br><span>WOODS</span></div>
+      <p class="subtitle">CO-OP SURVIVAL • 1–6 PLAYERS</p>
+      <label>RANGER NAME<input id="name" maxlength="18" value="Ranger" autocomplete="nickname"></label>
+      <div class="menu-row">
+        <button id="solo">SOLO</button>
+        <button id="host">HOST GROVE</button>
+      </div>
+      <div class="join-row">
+        <input id="room" maxlength="5" placeholder="ROOM CODE" autocomplete="off" spellcheck="false">
+        <button id="join">JOIN</button>
+      </div>
+      <p class="tiny">WASD move • Shift sprint • E gather/interact • Space attack • Q use • C craft • M map • Enter chat • V voice</p>
+    </section>
+
+    <section id="craft" class="panel small-panel hidden">
+      <div class="panel-title">CRAFTING <button class="close" data-close="craft">×</button></div>
+      <div id="recipes"></div>
+      <p class="tiny">Campfires heal nearby survivors at night. Shelters become your new respawn point.</p>
+    </section>
+
+    <section id="map-panel" class="panel map-panel hidden">
+      <div class="panel-title">FOREST MAP <button class="close" data-close="map-panel">×</button></div>
+      <canvas id="big-map" width="320" height="320"></canvas>
+      <p class="tiny">Red stars are Moon Altars. The gold marker is the Old Gate.</p>
+    </section>
+
+    <section id="pause" class="panel small-panel hidden">
+      <div class="panel-title">PAUSED</div>
+      <p>Press Esc to return.</p>
+      <p class="tiny">The online world keeps moving while the menu is open.</p>
+    </section>
+
+    <div id="room-tag" class="hud-chip hidden"></div>
+    <div id="objective" class="objective hidden"></div>
+    <div id="toasts" aria-live="polite"></div>
+    <div id="chat-log" class="hidden"></div>
+    <input id="chat-input" class="hidden" maxlength="160" placeholder="Message your grove…" autocomplete="off">
+    <div id="voice-chip" class="hud-chip hidden">VOICE OFF [V]</div>
+    <button id="install" class="hud-chip hidden">INSTALL</button>
+
+    <div id="touch" class="hidden">
+      <div class="dpad">
+        <button data-key="up">▲</button>
+        <button data-key="left">◀</button>
+        <button data-key="down">▼</button>
+        <button data-key="right">▶</button>
+      </div>
+      <div class="actions">
+        <button data-action="interact">E</button>
+        <button data-action="attack">⚔</button>
+        <button data-action="use">Q</button>
+      </div>
+    </div>
+
+    <section id="end-screen" class="panel hidden">
+      <div class="logo smaller">THE GATE<br><span>IS OPEN</span></div>
+      <p>You survived the Mysterious Woods.</p>
+      <p class="tiny">You can keep exploring this grove, or refresh to begin a new one.</p>
+      <button id="continue">KEEP EXPLORING</button>
+    </section>
+  </main>
+  <script src="/game.js"></script>
+</body>
+</html>
