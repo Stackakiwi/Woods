@@ -1,0 +1,12 @@
+{
+  "name": "mysterious-woods",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Co-op pixel-art survival game in a mysterious forest.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --check server.js && node --check public/game.js"
+  },
+  "engines": {"node": ">=20"}
+}
